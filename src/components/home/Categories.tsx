@@ -23,16 +23,6 @@ const iconMap: Record<string, LucideIcon> = {
   Castle,
 };
 
-/* Mock property counts per category — replace with real data later */
-const propertyCounts: Record<string, number> = {
-  residential: 45,
-  commercial: 28,
-  apartment: 62,
-  plot: 34,
-  farmhouse: 12,
-  villa: 18,
-};
-
 const containerVariants = {
   hidden: {},
   visible: {
@@ -51,7 +41,7 @@ const itemVariants = {
   },
 } as const;
 
-export default function Categories() {
+export default function Categories({ counts = {} }: { counts?: Record<string, number> }) {
   return (
     <section className="section-padding bg-sage/50">
       <div className="container-luxury">
@@ -69,7 +59,7 @@ export default function Categories() {
         >
           {PROPERTY_TYPES.map((category) => {
             const Icon = iconMap[category.icon];
-            const count = propertyCounts[category.value] ?? 0;
+            const count = counts[category.value] ?? 0;
 
             return (
               <motion.div

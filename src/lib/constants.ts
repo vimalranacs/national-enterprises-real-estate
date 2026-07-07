@@ -80,8 +80,8 @@ export const AREA_RANGES = [
 ] as const;
 
 export const STATS = [
-  { label: 'Properties Sold', value: 500, suffix: '+' },
-  { label: 'Happy Clients', value: 350, suffix: '+' },
-  { label: 'Expert Agents', value: 15, suffix: '+' },
+  { label: 'Properties Sold', value: 0, suffix: '' },
+  { label: 'Happy Clients', value: 0, suffix: '' },
+  { label: 'Expert Agents', value: 2, suffix: '' },
   { label: 'Areas Covered', value: 25, suffix: '+' },
 ] as const;

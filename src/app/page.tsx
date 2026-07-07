@@ -37,6 +37,17 @@ export default async function Home() {
     .order('created_at', { ascending: false })
     .limit(3);
 
+  // Fetch all active property types to calculate category counts
+  const { data: typeData } = await supabase
+    .from('properties')
+    .select('type')
+    .eq('is_active', true);
+
+  const categoryCounts = (typeData || []).reduce((acc, curr) => {
+    acc[curr.type] = (acc[curr.type] || 0) + 1;
+    return acc;
+  }, {} as Record<string, number>);
+
   const featuredProperties = (featuredData || []).map(mapSupabaseProperty);
   const latestProperties = (latestData || []).map(mapSupabaseProperty);
 
@@ -45,7 +56,7 @@ export default async function Home() {
       <HeroSection />
       <PropertySearch />
       <FeaturedListings properties={featuredProperties} />
-      <Categories />
+      <Categories counts={categoryCounts} />
       <ServicesSection />
       <WhyChooseUs />
       <LatestProperties properties={latestProperties} />

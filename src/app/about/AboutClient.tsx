@@ -249,10 +249,10 @@ export default function AboutClient() {
         <div className="container-luxury">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { icon: Home, value: '500+', label: 'Properties Dealt' },
-              { icon: Users, value: '350+', label: 'Happy Clients' },
-              { icon: Award, value: '15+', label: 'Expert Agents' },
-              { icon: Star, value: '4.9', label: 'Average Rating' },
+              { icon: Home, value: '0', label: 'Properties Dealt' },
+              { icon: Users, value: '0', label: 'Happy Clients' },
+              { icon: Award, value: '2', label: 'Expert Agents' },
+              { icon: Star, value: '5.0', label: 'Average Rating' },
             ].map((stat, i) => {
               const Icon = stat.icon;
               return (
