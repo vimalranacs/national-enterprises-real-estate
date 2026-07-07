@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import SectionHeading from '@/components/ui/SectionHeading';
 import PropertyCard from '@/components/ui/PropertyCard';
-import { featuredProperties } from '@/lib/data/properties';
+import { Property } from '@/types';
 
 const containerVariants = {
   hidden: {},
@@ -25,7 +25,9 @@ const itemVariants = {
   },
 } as const;
 
-export default function FeaturedListings() {
+export default function FeaturedListings({ properties }: { properties: Property[] }) {
+  if (!properties || properties.length === 0) return null;
+
   return (
     <section className="section-padding">
       <div className="container-luxury">
@@ -41,7 +43,7 @@ export default function FeaturedListings() {
           viewport={{ once: true, margin: '-100px' }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {featuredProperties.map((property) => (
+          {properties.map((property) => (
             <motion.div key={property.id} variants={itemVariants}>
               <PropertyCard property={property} />
             </motion.div>

@@ -1,38 +1,59 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { properties } from '@/lib/data/properties';
+import { createClient } from '@/lib/supabase/server';
+import { mapSupabaseProperty } from '@/lib/supabase/utils';
 import PropertyDetailClient from './PropertyDetailClient';
 
 interface Props {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateStaticParams() {
-  return properties.map((p) => ({ slug: p.slug }));
-}
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const property = properties.find((p) => p.slug === slug);
+  const supabase = await createClient();
+  const { data: property } = await supabase
+    .from('properties')
+    .select('title, description, price_label, images')
+    .eq('slug', slug)
+    .single();
+
   if (!property) return { title: 'Property Not Found' };
 
   return {
-    title: `${property.title} | ${property.priceLabel}`,
-    description: property.description,
+    title: `${property.title} | ${property.price_label || ''}`,
+    description: property.description || '',
     openGraph: {
-      images: [{ url: property.images[0], alt: property.title }],
+      images: property.images?.[0] ? [{ url: property.images[0], alt: property.title }] : [],
     },
   };
 }
 
 export default async function PropertyDetailPage({ params }: Props) {
   const { slug } = await params;
-  const property = properties.find((p) => p.slug === slug);
-  if (!property) notFound();
+  const supabase = await createClient();
+  
+  const { data } = await supabase
+    .from('properties')
+    .select('*')
+    .eq('slug', slug)
+    .single();
 
-  const similar = properties
-    .filter((p) => p.type === property.type && p.id !== property.id)
-    .slice(0, 3);
+  if (!data || !data.is_active) notFound();
+
+  const property = mapSupabaseProperty(data);
+
+  // Fetch similar properties
+  const { data: similarData } = await supabase
+    .from('properties')
+    .select('*')
+    .eq('type', data.type)
+    .eq('is_active', true)
+    .neq('id', data.id)
+    .limit(3);
+
+  const similar = (similarData || []).map(mapSupabaseProperty);
 
   return <PropertyDetailClient property={property} similarProperties={similar} />;
 }

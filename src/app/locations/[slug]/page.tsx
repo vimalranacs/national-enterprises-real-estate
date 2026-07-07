@@ -3,7 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { areas } from '@/lib/data/areas';
-import { properties } from '@/lib/data/properties';
+import { createClient } from '@/lib/supabase/server';
+import { mapSupabaseProperty } from '@/lib/supabase/utils';
 import PropertyCard from '@/components/ui/PropertyCard';
 import { MapPin, TrendingUp, Home, ArrowLeft, CheckCircle, MessageCircle } from 'lucide-react';
 import { CONTACT } from '@/lib/constants';
@@ -12,9 +13,7 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateStaticParams() {
-  return areas.map((a) => ({ slug: a.slug }));
-}
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
@@ -31,9 +30,18 @@ export default async function LocationPage({ params }: Props) {
   const area = areas.find((a) => a.slug === slug);
   if (!area) notFound();
 
-  const areaProperties = properties.filter((p) =>
-    p.location.area.toLowerCase().includes(area.name.toLowerCase())
-  ).slice(0, 6);
+  const supabase = await createClient();
+
+  // Fetch properties for this area
+  const { data } = await supabase
+    .from('properties')
+    .select('*')
+    .eq('is_active', true)
+    .ilike('area', `%${area.name}%`)
+    .order('created_at', { ascending: false })
+    .limit(6);
+
+  const areaProperties = (data || []).map(mapSupabaseProperty);
 
   const priceTrends = [
     { label: 'Average Property Rate', value: area.avgPrice },
@@ -60,7 +68,7 @@ export default async function LocationPage({ params }: Props) {
             </div>
             <div className="flex flex-wrap gap-2 mt-4">
               <span className="bg-gold/90 text-white text-xs font-semibold px-3 py-1 rounded-full">
-                {area.propertiesCount} Properties
+                {areaProperties.length > 0 ? `${areaProperties.length}+ Properties` : 'Properties'}
               </span>
               {area.highlights.map((h) => (
                 <span key={h} className="bg-white/20 backdrop-blur text-white text-xs font-medium px-3 py-1 rounded-full">{h}</span>
@@ -72,7 +80,6 @@ export default async function LocationPage({ params }: Props) {
 
       <div className="container-luxury py-12 lg:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-
           {/* LEFT */}
           <div className="lg:col-span-2 space-y-10">
             {/* Overview */}

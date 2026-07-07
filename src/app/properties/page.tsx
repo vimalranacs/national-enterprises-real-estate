@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { properties } from '@/lib/data/properties';
+import { createClient } from '@/lib/supabase/server';
+import { mapSupabaseProperty } from '@/lib/supabase/utils';
 import PropertiesClient from './PropertiesClient';
 
 export const metadata: Metadata = {
@@ -16,6 +17,17 @@ export const metadata: Metadata = {
   ],
 };
 
-export default function PropertiesPage() {
+export const dynamic = 'force-dynamic';
+
+export default async function PropertiesPage() {
+  const supabase = await createClient();
+  const { data } = await supabase
+    .from('properties')
+    .select('*')
+    .eq('is_active', true)
+    .order('created_at', { ascending: false });
+
+  const properties = (data || []).map(mapSupabaseProperty);
+
   return <PropertiesClient allProperties={properties} />;
 }
