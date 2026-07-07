@@ -1,0 +1,19 @@
+1:"$Sreact.fragment"
+2:I[48044,["/_next/static/chunks/2pzczbk9un-_j.js","/_next/static/chunks/1_vztpfqxz4nf.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/2e-4cds1_b3as.js"],"default"]
+3:I[58863,["/_next/static/chunks/2pzczbk9un-_j.js","/_next/static/chunks/1_vztpfqxz4nf.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/2e-4cds1_b3as.js"],"default"]
+4:I[87380,["/_next/static/chunks/2pzczbk9un-_j.js","/_next/static/chunks/1_vztpfqxz4nf.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/2e-4cds1_b3as.js"],"default"]
+5:I[30359,["/_next/static/chunks/2pzczbk9un-_j.js","/_next/static/chunks/1_vztpfqxz4nf.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/2e-4cds1_b3as.js"],"default"]
+6:I[89292,["/_next/static/chunks/2pzczbk9un-_j.js","/_next/static/chunks/1_vztpfqxz4nf.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/2e-4cds1_b3as.js"],"default"]
+7:I[85668,["/_next/static/chunks/2pzczbk9un-_j.js","/_next/static/chunks/1_vztpfqxz4nf.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/2e-4cds1_b3as.js"],"default"]
+8:I[40090,["/_next/static/chunks/2pzczbk9un-_j.js","/_next/static/chunks/1_vztpfqxz4nf.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/2e-4cds1_b3as.js"],"default"]
+9:I[33058,["/_next/static/chunks/2pzczbk9un-_j.js","/_next/static/chunks/1_vztpfqxz4nf.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/2e-4cds1_b3as.js"],"default"]
+a:I[56245,["/_next/static/chunks/2pzczbk9un-_j.js","/_next/static/chunks/1_vztpfqxz4nf.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/2e-4cds1_b3as.js"],"default"]
+b:I[98542,["/_next/static/chunks/2pzczbk9un-_j.js","/_next/static/chunks/1_vztpfqxz4nf.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/2e-4cds1_b3as.js"],"default"]
+c:I[73015,["/_next/static/chunks/2pzczbk9un-_j.js","/_next/static/chunks/1_vztpfqxz4nf.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/2e-4cds1_b3as.js"],"default"]
+d:I[46348,["/_next/static/chunks/2pzczbk9un-_j.js","/_next/static/chunks/1_vztpfqxz4nf.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/2e-4cds1_b3as.js"],"default"]
+e:I[1815,["/_next/static/chunks/2pzczbk9un-_j.js","/_next/static/chunks/1_vztpfqxz4nf.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/2e-4cds1_b3as.js"],"default"]
+f:I[44971,["/_next/static/chunks/2pzczbk9un-_j.js","/_next/static/chunks/1_vztpfqxz4nf.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/2e-4cds1_b3as.js"],"default"]
+10:I[97367,["/_next/static/chunks/2pzczbk9un-_j.js","/_next/static/chunks/1_vztpfqxz4nf.js","/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
+11:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"National Enterprises Real Estate\",\"url\":\"https://nationalenterprises.in\",\"potentialAction\":{\"@type\":\"SearchAction\",\"target\":\"https://nationalenterprises.in/properties?query={search_term_string}\",\"query-input\":\"required name=search_term_string\"}}"}}],["$","$L2",null,{}],["$","$L3",null,{}],["$","$L4",null,{}],["$","$L5",null,{}],["$","$L6",null,{}],["$","$L7",null,{}],["$","$L8",null,{}],["$","$L9",null,{}],["$","$La",null,{}],["$","$Lb",null,{}],["$","$Lc",null,{}],["$","$Ld",null,{}],["$","$Le",null,{}],["$","$Lf",null,{}]],[["$","script","script-0",{"src":"/_next/static/chunks/2e-4cds1_b3as.js","async":true}]],["$","$L10",null,{"children":["$","$11",null,{"name":"Next.MetadataOutlet","children":"$@12"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"1Lmg-vNI82Bg2BGRNTdyF"}
+12:null

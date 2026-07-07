@@ -1,0 +1,16 @@
+{"timestamp":"00:00:01.486","source":"Server","level":"LOG","message":""}
+{"timestamp":"00:00:01.486","source":"Server","level":"LOG","message":"  We detected TypeScript in your project and reconfigured your tsconfig.json file for you."}
+{"timestamp":"00:00:01.487","source":"Server","level":"LOG","message":"  The following suggested values were added to your tsconfig.json. These values can be changed to fit your project's needs:\n"}
+{"timestamp":"00:00:01.487","source":"Server","level":"LOG","message":"  \t- include was updated to add '.next-codex/types/**/*.ts'"}
+{"timestamp":"00:00:01.487","source":"Server","level":"LOG","message":"  \t- include was updated to add '.next-codex/dev/types/**/*.ts'"}
+{"timestamp":"00:00:01.487","source":"Server","level":"LOG","message":""}
+{"timestamp":"00:00:01.706","source":"Server","level":"LOG","message":""}
+{"timestamp":"00:00:27.219","source":"Server","level":"LOG","message":"○ Compiling / ..."}
+{"timestamp":"00:00:28.679","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:00:29.063","source":"Browser","level":"WARN","message":"Image with src \"/logo.png\" has \"fill\" but is missing \"sizes\" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes"}
+{"timestamp":"00:00:29.088","source":"Server","level":"WARN","message":"[browser] \"Image with src \\\"/logo.png\\\" has \\\"fill\\\" but is missing \\\"sizes\\\" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes\" \"(file://D:/manishbhaiyareal statewebsite/national-enterprises/.next-codex/dev/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477:13)\""}
+{"timestamp":"00:00:29.089","source":"Browser","level":"WARN","message":"Image with src \"/logo.png\" has \"fill\" but is missing \"sizes\" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes"}
+{"timestamp":"00:00:48.581","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:00:48.890","source":"Server","level":"WARN","message":"[browser] \"Image with src \\\"/logo.png\\\" has \\\"fill\\\" but is missing \\\"sizes\\\" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes\" \"(file://D:/manishbhaiyareal statewebsite/national-enterprises/.next-codex/dev/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477:13)\""}
+{"timestamp":"00:00:48.890","source":"Browser","level":"WARN","message":"Image with src \"/logo.png\" has \"fill\" but is missing \"sizes\" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes"}
+{"timestamp":"00:00:48.891","source":"Browser","level":"WARN","message":"Image with src \"/logo.png\" has \"fill\" but is missing \"sizes\" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes"}

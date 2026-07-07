@@ -1,26 +1,221 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================
+   National Enterprises Real Estate
+   Premium Design System — Brand Tokens
+   ============================================ */
 
 @theme inline {
+  /* Brand Colors */
+  --color-emerald-brand: #0E3B2E;
+  --color-emerald-dark: #092A20;
+  --color-emerald-light: #145840;
+  --color-gold: #C9A14A;
+  --color-gold-light: #D4B46A;
+  --color-gold-dark: #B08A35;
+  --color-ivory: #FCFBF8;
+  --color-sage: #EDF5EF;
+  --color-sage-dark: #D5E8D9;
+
+  /* shadcn mappings */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Sidebar */
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+
+  /* Charts */
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+
+  /* Typography */
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-heading: var(--font-manrope), system-ui, sans-serif;
   --font-mono: var(--font-geist-mono);
+
+  /* Radius */
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  /* Brand-aligned shadcn tokens */
+  --background: #FCFBF8;
+  --foreground: #1A1A1A;
+  --card: #FFFFFF;
+  --card-foreground: #1A1A1A;
+  --popover: #FFFFFF;
+  --popover-foreground: #1A1A1A;
+  --primary: #0E3B2E;
+  --primary-foreground: #FFFFFF;
+  --secondary: #EDF5EF;
+  --secondary-foreground: #0E3B2E;
+  --muted: #F5F5F5;
+  --muted-foreground: #5F6368;
+  --accent: #EDF5EF;
+  --accent-foreground: #0E3B2E;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: #E9E9E9;
+  --input: #E9E9E9;
+  --ring: #0E3B2E;
+  --chart-1: #0E3B2E;
+  --chart-2: #C9A14A;
+  --chart-3: #5F6368;
+  --chart-4: #EDF5EF;
+  --chart-5: #145840;
+  --radius: 0.625rem;
+
+  /* Sidebar */
+  --sidebar: #FCFBF8;
+  --sidebar-foreground: #1A1A1A;
+  --sidebar-primary: #0E3B2E;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #EDF5EF;
+  --sidebar-accent-foreground: #0E3B2E;
+  --sidebar-border: #E9E9E9;
+  --sidebar-ring: #0E3B2E;
+}
+
+/* ============================================
+   Base Styles
+   ============================================ */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply scroll-smooth font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-ivory text-foreground;
+  }
+
+  /* Premium Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #F5F5F5;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #C9A14A;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #B08A35;
+  }
+
+  /* Selection */
+  ::selection {
+    background-color: #0E3B2E;
+    color: #FFFFFF;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ============================================
+   Custom Utilities
+   ============================================ */
+
+@layer utilities {
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #C9A14A 0%, #D4B46A 50%, #C9A14A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gold-divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #C9A14A, transparent);
+  }
+
+  .gold-divider-left {
+    height: 2px;
+    width: 60px;
+    background: linear-gradient(90deg, #C9A14A, transparent);
+  }
+
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+
+  .container-luxury {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 161, 74, 0.4); }
+  50% { box-shadow: 0 0 0 15px rgba(201, 161, 74, 0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-gold {
+  animation: pulse-gold 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, #F5F5F5 25%, #E9E9E9 50%, #F5F5F5 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
 }
